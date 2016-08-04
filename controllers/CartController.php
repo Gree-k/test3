@@ -81,7 +81,6 @@ class CartController
                 Yii::$app->session->setFlash('error', 'Оши213123ия заказа');
             }
         }
-
         return $this->render('view', compact('session', 'order'));
     }
 
