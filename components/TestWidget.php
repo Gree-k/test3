@@ -23,6 +23,12 @@ class TestWidget extends Widget
     {
         $this->data = Page::find()->indexBy('id')->asArray()->all();
         $tree = $this->getTree();
+        $data = (new \yii\db\Query())
+            ->select('*')
+            ->from('page')
+            ->where(['id'=>[1,2,3,4]])
+            ->all();
+            var_dump(count($data));
 
 //        $menu = $this->getMenu($this->tree);
 //        var_dump($this->tree);

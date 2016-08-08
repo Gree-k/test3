@@ -157,6 +157,8 @@ IeAsset::register($this);
 </header><!--/header-->
 
 <!--    <div class="wrap">-->
+
+<?= \app\components\TestWidget::widget()?>
 <?= $content ?>
 
 <!--    </div>-->

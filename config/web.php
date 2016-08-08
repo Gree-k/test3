@@ -29,15 +29,16 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
-//            'transport' => [
-//                'class' => 'Swift_SmtpTransport',
-//                'host' => 'localhost',
-//                'username' => 'username',
-//                'password' => 'password',
-//                'port' => '587',
-//                'encryption' => 'tls',
-//            ],
+//            'useFileTransport' => true,
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.mail.ru',
+                'username' => 'lolkaenot@list.ru',
+                'password' => 'Ya4815162342',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
