@@ -16,16 +16,52 @@ use yii\web\Controller;
 
 class TestController extends AController
 {
+    public function actionMap()
+    {
+
+        $js = [ "type"=> "FeatureCollection"];
+
+
+        $data = [];
+            for ($i=0.02; $i<1;$i+=0.02){
+                $data[]=[
+                    "type" => "Feature",
+                    "geometry" =>
+                        [
+                            "type" => "Point",
+                            "coordinates" => [56.1 + $i, 37.1 + $i]
+                        ],
+                    "properties" =>
+                        [
+                            "balloonContent" => "Центр выдачи в Великом Новгороде Адрес: г.Великий Новгород, ул. Большая Санкт-Петербургская, д.39 стр 14, оф.1, СДЭК. Тел. (8162) 22-44-40 Заказ будет доставлен в пункт выдачи через 2-4 рабочих дня. Время работы: с понедельника по пятницу с 9-00 до 18-00.",
+                            "hintContent" => "Центр выдачи в Великом Новгороде"
+                        ],
+                    "options" => ["preset" => "islands#violetDotIcon"]
+                ];
+
+            }
+
+        $js["features"]=$data;
+        echo json_encode($js);
+
+
+
+
+//        include __DIR__ . '/../web/data.json';
+    }
+
     public function actionIndex()
     {
+        $this->layout = false;
+
         $model = new TestForm();
         $mod = new TesForm();
         if (Yii::$app->request->isPost) {
 
-            $mod->attributes=Yii::$app->request->post()['TesForm'];
+            $mod->attributes = Yii::$app->request->post()['TesForm'];
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
 
-            if ($a=$model->upload()) {
+            if ($a = $model->upload()) {
                 echo '123123123123';
                 // file is uploaded successfully
             }
@@ -50,7 +86,7 @@ class TestController extends AController
 //            $as = UploadedFile::getInstances($model, 'imageFiles');
 //            var_dump($as);
 //            $model->name = $_POST['name'];
-            $mess= Yii::$app->mailer->compose()
+            $mess = Yii::$app->mailer->compose()
                 ->setFrom('lolkaenot@list.ru')
                 ->setTo('lolkaenot@list.ru')
                 ->setSubject($mod->name);
