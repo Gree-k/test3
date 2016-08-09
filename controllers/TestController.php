@@ -36,13 +36,18 @@ class TestController extends AController
                             "balloonContent" => "Центр выдачи в Великом Новгороде Адрес: г.Великий Новгород, ул. Большая Санкт-Петербургская, д.39 стр 14, оф.1, СДЭК. Тел. (8162) 22-44-40 Заказ будет доставлен в пункт выдачи через 2-4 рабочих дня. Время работы: с понедельника по пятницу с 9-00 до 18-00.",
                             "hintContent" => "Центр выдачи в Великом Новгороде"
                         ],
-                    "options" => ["preset" => "islands#violetDotIcon"]
+                    "options" => [
+//                        "preset" => "islands#violetDotIcon"
+                        'iconLayout'=> 'default#image',
+                        'iconImageHref' => '/web/images/loca.png',
+//                        'iconImageSize' => [30, 32]
+                    ]
                 ];
 
             }
 
         $js["features"]=$data;
-        echo json_encode($js);
+        return json_encode($js);
 
 
 

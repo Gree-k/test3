@@ -7,7 +7,7 @@
         .done(function (ym) {
             var myMap = new ym.Map('map', {
                 center: [55.751574, 37.573856],
-                zoom: 7
+                zoom: 10
             }, {
                 searchControlProvider: 'yandex#search'
             });
@@ -19,7 +19,7 @@
                 var geoObjects = ym.geoQuery(json)
                     .addToMap(myMap)
                     .applyBoundsToMap(myMap, {
-                        checkZoomRange: false
+                        checkZoomRange: true
                     });
             });
         });
