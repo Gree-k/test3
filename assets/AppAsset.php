@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'css/animate.css',
         'css/main.css',
         'css/responsive.css',
+        'css/qwe.css',
     ];
     public $js = [
         'js/jquery.scrollUp.min.js',
